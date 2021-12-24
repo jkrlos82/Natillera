@@ -18,6 +18,7 @@ class CreateSociosTable extends Migration
             $table->string('nombre');
             $table->string('cedula');
             $table->string('celular');
+            $table->integer('aporte');
             $table->string('email')->nullable();
             $table->string('direccion')->nullable();
             $table->boolean('status')->default(true);

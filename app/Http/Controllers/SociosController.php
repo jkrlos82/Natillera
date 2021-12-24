@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Services\SociosService;
+use App\Models\Socio;
 
 class SociosController extends Controller
 {
@@ -13,7 +15,8 @@ class SociosController extends Controller
      */
     public function index()
     {
-        //
+        $socios = Socio::all();
+        return view('welcome', compact('socios'));
     }
 
     /**
@@ -24,6 +27,7 @@ class SociosController extends Controller
     public function create()
     {
         //
+        return view('socios.create');
     }
 
     /**
@@ -35,6 +39,9 @@ class SociosController extends Controller
     public function store(Request $request)
     {
         //
+        $store = new SociosService();
+        $response = $store->createSocio($request);
+        return view('welcome', compact('response'));
     }
 
     /**

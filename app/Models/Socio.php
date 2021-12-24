@@ -9,6 +9,8 @@ class Socio extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function pagoPrestamo()
     {
         return $this->hasMany(PagosPrestamo::class);

@@ -15,7 +15,7 @@ class CreatePollasTable extends Migration
     {
         Schema::create('pollas', function (Blueprint $table) {
             $table->id();
-            $table->bigUnsignedInteger('socio_id');
+            $table->unsignedBigInteger('socio_id');
             $table->string('numero');
             $table->timestamps();
         });
