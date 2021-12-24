@@ -16,8 +16,10 @@ class CreateSociosTable extends Migration
         Schema::create('socios', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('cedula');
+            $table->string('cedula')->unique();
             $table->string('celular');
+            $table->string('banco');
+            $table->string('cuenta');
             $table->integer('aporte');
             $table->string('email')->nullable();
             $table->string('direccion')->nullable();

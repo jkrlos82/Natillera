@@ -17,6 +17,8 @@ class SociosService
                 $socio = Socio::create([
                     'nombre' => $request->get('nombre'),
                     'cedula' => $request->get('cedula'),
+                    'banco' => $request->get('banco'),
+                    'cuenta' => $request->get('cuenta'),
                     'direccion' => $request->get('direccion'),
                     'celular' => $request->get('celular'),
                     'email' => $request->get('email'),
@@ -29,7 +31,7 @@ class SociosService
                 ]);
             });
 
-            return json_encode(["succed" => $request->get('nombre')], 200);
+            return json_encode(["success" => $request->get('nombre')], 200);
         } catch (\Exception $e) {
             return json_encode(["error" => $e->getMessage()], 400);
         }
