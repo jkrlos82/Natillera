@@ -20,4 +20,9 @@ class Socio extends Model
     {
         return $this->hasOne(Polla::class);
     }
+
+    public function aporte()
+    {
+        return $this->hasMany(Aporte::class);
+    }
 }

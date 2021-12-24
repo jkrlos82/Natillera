@@ -40,8 +40,9 @@ class SociosController extends Controller
     {
         //
         $store = new SociosService();
-        $response = $store->createSocio($request);
-        return view('welcome', compact('response'));
+        $socios = Socio::all();
+        $response = json_decode($store->createSocio($request));
+        return view('welcome', compact('response', 'socios'));
     }
 
     /**

@@ -29,6 +29,20 @@
         </div>
     </div>
     <div class="row">
+        <div class="col-md-6">
+            <div class="form-group mt-3">
+                <span class="form-label mt-5">Banco</span>
+                <input class="form-control" type="text" id="banco" name="banco" placeholder="Banco">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group mt-3">
+                <span class="form-label mt-5">Cuenta</span>
+                <input class="form-control" type="text" id="cuenta" name="cuenta" placeholder="# Cuenta">
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-3">
             <div class="form-group mt-3">
                 <span class="form-label mt-5">Celular</span>

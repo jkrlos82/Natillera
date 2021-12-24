@@ -24,13 +24,13 @@
 <body class="antialiased">
     @include('layouts.navbar')
     @if( isset( $response ))
-    @if ($response->has('error'))
+    @if (isset($response->error))
     <div class="alert alert-danger" role="alert">
-        {{ $response->get('error') }}
+        {{ $response->error }}
     </div>
     @else
     <div class="alert alert-success" role="success">
-        Socio {{ $response->get('success')}} creado !
+        Socio {{ $response->success}} creado !
     </div>
     @endif
     @endif
@@ -57,7 +57,7 @@
                             <td>{{$socio->celular}}</td>
                             <td>{{$socio->email}}</td>
                             <td>${{$socio->aporte}}</td>
-                            <td><a href="/socios/" .{{$socio->id}}>Ver</a></td>
+                            <td><a href="/socios/{{$socio->id}}">Ver</a></td>
                         </tr>
                         @endforeach
                     </tbody>
