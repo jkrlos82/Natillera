@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SociosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [SociosController::class, 'index']);
+Route::get('/socios/new', [SociosController::class, 'create']);
+Route::post('/socios/new', [SociosController::class, 'store']);
