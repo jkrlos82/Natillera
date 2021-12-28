@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Prestamo;
+use App\Models\Socio;
+use App\Http\Services\PrestamosService;
 
 class PrestamosController extends Controller
 {
@@ -14,6 +17,8 @@ class PrestamosController extends Controller
     public function index()
     {
         //
+        $prestamos = Prestamo::all();
+        return view('prestamos.list', compact('prestamos'));
     }
 
     /**
@@ -23,7 +28,8 @@ class PrestamosController extends Controller
      */
     public function create()
     {
-        //
+        $socios = Socio::all();
+        return view('prestamos.create', compact('socios'));
     }
 
     /**
@@ -35,6 +41,10 @@ class PrestamosController extends Controller
     public function store(Request $request)
     {
         //
+        $prestamo = new PrestamosService;
+        $prestamo->createPrestamo($request);
+        $prestamos = Prestamo::all();
+        return view('prestamos.list', compact('prestamos'));
     }
 
     /**

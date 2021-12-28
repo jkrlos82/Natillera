@@ -9,6 +9,8 @@ class Prestamo extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function socio()
     {
         return $this->belongsTo(Socio::class);

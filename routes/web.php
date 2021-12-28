@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\SociosController;
+use App\Http\Controllers\PrestamosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,3 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [SociosController::class, 'index']);
 Route::get('/socios/new', [SociosController::class, 'create']);
 Route::post('/socios/new', [SociosController::class, 'store']);
+Route::get('/prestamos/new', [PrestamosController::class, 'create']);
+Route::post('/prestamos/new', [PrestamosController::class, 'store']);
+Route::get('/prestamos/list', [PrestamosController::class, 'index']);
