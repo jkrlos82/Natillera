@@ -18,6 +18,6 @@ class Prestamo extends Model
 
     public function pagosPrestamos()
     {
-        return $this->hasMany(PagosPrestamos::class);
+        return $this->hasMany(PagosPrestamo::class);
     }
 }

@@ -25,7 +25,7 @@ class PrestamosService
             ]);
 
 
-            return json_encode(["success" => $request->get('nombre')], 200);
+            return json_encode(["success" => $request->get('responsable')], 200);
         } catch (\Exception $e) {
             return json_encode(["error" => $e->getMessage()], 400);
         }

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Prestamos</title>
+    <title>Detalle Prestamos</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -23,7 +23,6 @@
 
 <body class="antialiased">
     @include('layouts.navbar')
-
     @if( isset( $response ))
     @if (isset($response->error))
     <div class="alert alert-danger" role="alert">
@@ -31,41 +30,32 @@
     </div>
     @else
     <div class="alert alert-success" role="success">
-        Prestamo {{ $response->success}} creado !
+        Prestamos {{ $response->success}} creado !
     </div>
     @endif
     @endif
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="text-center mt-5">Prestamos</h2>
+                <h2 class="text-center mt-5">Detalle Prestamos {{$prestamo->responsable}}</h2>
                 <table class="table mt-5">
                     <thead>
                         <tr>
-                            <th scope="col">Id</th>
                             <th scope="col">Socio</th>
-                            <th scope="col">Responsable</th>
-                            <th scope="col">Porcentaje</th>
-                            <th scope="col">Valor Prestamo</th>
-                            <th scope="col">Fecha Prestamo</th>
-                            <th scope="col">Saldo</th>
-                            <th scope="col">Detalle</th>
+                            <th scope="col"># prestamo</th>
+                            <th scope="col">Pago Interes</th>
+                            <th scope="col">Abono Capital</th>
+                            <th scope="col">Fecha Pago</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($prestamos as $prestamo)
+                        @foreach ($prestamo->pagosPrestamos as $pago)
                         <tr>
-                            <th scope="row">{{$prestamo->id}}</th>
                             <td>{{$prestamo->socio->nombre}}</td>
-                            <td>{{$prestamo->responsable}}</td>
-                            <td>{{$prestamo->porcentaje}}</td>
-                            <td>${{$prestamo->valor_prestamo}}</td>
-                            <td>${{$prestamo->fecha_inicio}}</td>
-                            <td>${{$prestamo->saldo}}</td>
-                            <td>
-                                <a href="/prestamos/abono/{{$prestamo->id}}">Abono Prestamo</a>
-                                <a href="/prestamos/{{$prestamo->id}}">Ver</a>
-                            </td>
+                            <td>{{$pago->id}}</td>
+                            <td>{{$pago->pago_interes}}</td>
+                            <td>{{$pago->abono_capital}}</td>
+                            <td>{{$pago->created_at}}</td>
                         </tr>
                         @endforeach
                     </tbody>

@@ -9,7 +9,9 @@ class PagosPrestamo extends Model
 {
     use HasFactory;
 
-    public function prestamos()
+    protected $guarded = [];
+
+    public function Pagosprestamo()
     {
         return $this->belongsTo(Prestamo::class);
     }

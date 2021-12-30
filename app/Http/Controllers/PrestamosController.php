@@ -7,6 +7,7 @@ use App\Models\Prestamo;
 use App\Models\Socio;
 use App\Http\Services\PrestamosService;
 
+
 class PrestamosController extends Controller
 {
     /**
@@ -42,9 +43,9 @@ class PrestamosController extends Controller
     {
         //
         $prestamo = new PrestamosService;
-        $prestamo->createPrestamo($request);
+        $response = json_decode($prestamo->createPrestamo($request));
         $prestamos = Prestamo::all();
-        return view('prestamos.list', compact('prestamos'));
+        return view('prestamos.list', compact('prestamos', 'response'));
     }
 
     /**
@@ -55,7 +56,8 @@ class PrestamosController extends Controller
      */
     public function show($id)
     {
-        //
+        $prestamo = Prestamo::find($id);
+        return view('prestamos.show', compact('prestamo'));
     }
 
     /**
