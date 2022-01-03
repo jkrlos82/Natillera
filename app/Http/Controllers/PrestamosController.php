@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Prestamo;
+use App\Models\Socio;
+use App\Http\Services\PrestamosService;
+use App\Http\Requests\PrestamosRequest;
+
 
 class PrestamosController extends Controller
 {
@@ -14,6 +19,8 @@ class PrestamosController extends Controller
     public function index()
     {
         //
+        $prestamos = Prestamo::all();
+        return view('prestamos.list', compact('prestamos'));
     }
 
     /**
@@ -23,18 +30,23 @@ class PrestamosController extends Controller
      */
     public function create()
     {
-        //
+        $socios = Socio::all();
+        return view('prestamos.create', compact('socios'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  PrestamosRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PrestamosRequest $request)
     {
         //
+        $prestamo = new PrestamosService;
+        $response = json_decode($prestamo->createPrestamo($request));
+        $prestamos = Prestamo::all();
+        return view('prestamos.list', compact('prestamos', 'response'));
     }
 
     /**
@@ -45,7 +57,8 @@ class PrestamosController extends Controller
      */
     public function show($id)
     {
-        //
+        $prestamo = Prestamo::find($id);
+        return view('prestamos.show', compact('prestamo'));
     }
 
     /**

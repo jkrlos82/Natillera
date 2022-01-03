@@ -9,6 +9,8 @@ class Prestamo extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function socio()
     {
         return $this->belongsTo(Socio::class);
@@ -16,6 +18,6 @@ class Prestamo extends Model
 
     public function pagosPrestamos()
     {
-        return $this->hasMany(PagosPrestamos::class);
+        return $this->hasMany(PagosPrestamo::class);
     }
 }

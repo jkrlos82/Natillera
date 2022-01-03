@@ -27,12 +27,8 @@
             Prestamos
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Nuevo Prestamo</a></li>
-            <li><a class="dropdown-item" href="#">Listar Prestamos</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" href="#">Abonos Prestamo</a></li>
+            <li><a class="dropdown-item" href="/prestamos/new">Nuevo Prestamo</a></li>
+            <li><a class="dropdown-item" href="/prestamos/list">Listar Prestamos</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
