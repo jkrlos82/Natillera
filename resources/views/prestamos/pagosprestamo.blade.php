@@ -24,7 +24,7 @@
 <body class="antialiased">
     @include('layouts.navbar')
     <div class="container mt-5">
-        <h2 class="text-center mt-5">Abonos Prestamo ${{$prestamo->valor_prestamo}}</h2>
+        <h2 class="text-center mt-5">Abonos Prestamo {{$prestamo->responsable}}</h2>
         <div class="card">
             <div class="card-body justify-content-center">
                 <form method="post" action="/prestamos/abono/">
@@ -32,7 +32,7 @@
                     <div class="form-group row mb-2">
                         <label for="total_prestamo" class="col-sm-2 col-form-label">Total Prestamo:</label>
                         <div class="col-sm-3">
-                            <input type="text" class="form-control" id="total_prestamo" name="total_prestamo" disabled value="{{$prestamo->responsable}}">
+                            <input type="text" class="form-control" id="total_prestamo" name="total_prestamo" disabled value="${{$prestamo->valor_prestamo}}">
                             <input type="text" class="form-control" id="prestamo_id" name="prestamo_id" hidden value="{{$prestamo->id}}">
                         </div>
                     </div>
@@ -47,20 +47,40 @@
                         <div class="col-sm-3">
                             <input type="date" class="form-control" id="fecha_abono" name="fecha_abono">
                         </div>
+                        <br>
+                        @error('fecha_abono')
+                        <p><strong>{{$message}}</strong></p>
+                        @enderror
+                        <br>
                     </div>
                     <div class="form-group row mb-2">
                         <label for="valor_abono" class="col-sm-2 col-form-label">Abono Capital:</label>
                         <div class="col-sm-3">
                             <input type="text" class="form-control" id="abono_capital" name="abono_capital" placeholder="$0">
                         </div>
+                        <br>
+                        @error('abono_capital')
+                        <p><strong>{{$message}}</strong></p>
+                        @enderror
+                        <br>
                     </div>
                     <div class="form-group row mb-2">
                         <label for="interes" class="col-sm-2 col-form-label">Pago Interes:</label>
                         <div class="col-sm-3">
                             <input type="text" class="form-control" id="interes" name="interes" placeholder="$0">
                         </div>
+                        <br>
+                        @error('interes')
+                        <p><strong>{{$message}}</strong></p>
+                        @enderror
+                        <br>
                     </div>
                     <button type="submit" class="btn btn-success">Abonar</button>
+                    @if(isset($response->success))
+                    <div class="alert alert-success mt-5" role="alert">
+                        Transacción Exitosa
+                    </div>
+                    @endif
                 </form>
             </div>
         </div>

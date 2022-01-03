@@ -40,12 +40,22 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <br>
+                            @error('idsocio')
+                            <p><strong>{{$message}}</strong></p>
+                            @enderror
+                            <br>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group mt-3">
                                 <span class="form-label mt-5">Responsable</span>
                                 <input class="form-control" type="text" id="responsable" name="responsable" placeholder="Responsable">
                             </div>
+                            <br>
+                            @error('responsable')
+                            <p><strong>{{$message}}</strong></p>
+                            @enderror
+                            <br>
                         </div>
                     </div>
                     <div class="row">
@@ -63,6 +73,11 @@
                                 <span class="form-label mt-5">Valor Prestamo</span>
                                 <input class="form-control" type="valor" id="valor" name="valor" placeholder="$0">
                             </div>
+                            <br>
+                            @error('valor')
+                            <p><strong>{{$message}}</strong></p>
+                            @enderror
+                            <br>
                         </div>
                     </div>
                     <div class="row">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Prestamo;
 use App\Http\Services\PagoPrestamosService;
+use App\Http\Requests\PagosprestamoRequest;
 
 class PagosPrestamosController extends Controller
 {
@@ -14,12 +15,11 @@ class PagosPrestamosController extends Controller
         return view('prestamos.pagosprestamo', compact('prestamo'));
     }
 
-    public function store(Request $request)
+    public function store(PagosprestamoRequest $request)
     {
         $prestamo = Prestamo::find($request->input('prestamo_id'));
         $pago = new PagoPrestamosService();
-        $response = $pago->createPagoPrestamo($request);
-
+        $response = json_decode($pago->createPagoPrestamo($request));
 
         return view('prestamos.pagosprestamo', compact('response', 'prestamo'));
     }

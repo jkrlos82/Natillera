@@ -24,7 +24,7 @@ class PagoPrestamosService
 
                 $pago = PagosPrestamo::create([
                     'prestamo_id' => $request->input('prestamo_id'),
-                    'pago_interes' => $request->input('pago_interes') != null ? $request->input('pago_interes') : 0,
+                    'pago_interes' => $request->input('interes') != null ? $request->input('interes') : 0,
                     'abono_capital' => $request->input('abono_capital') != null ? $request->input('abono_capital') : 0,
                 ]);
             });

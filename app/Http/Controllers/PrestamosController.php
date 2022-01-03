@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Prestamo;
 use App\Models\Socio;
 use App\Http\Services\PrestamosService;
+use App\Http\Requests\PrestamosRequest;
 
 
 class PrestamosController extends Controller
@@ -36,10 +37,10 @@ class PrestamosController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  PrestamosRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PrestamosRequest $request)
     {
         //
         $prestamo = new PrestamosService;
